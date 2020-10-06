@@ -1,16 +1,17 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 // In App.js in a new project
 
-import React,{Component} from 'react';
+import React,{ Component } from 'react';
 import { View, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
+import MatIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Header from './Header.js';
 import HomeScreen from './Home.js';
-import Search from './Search.js'
+import CounterApp from './CounterApp.js';
 
 const Tab = createBottomTabNavigator();
 
@@ -36,12 +37,12 @@ export default function App() {
               ),
             }} />
           <Tab.Screen
-            name="Search"
-            component={Search}
+            name="Counter"
+            component={CounterApp}
             options={{
-              tabBarLabel: 'Search',
+              tabBarLabel: 'Counter',
               tabBarIcon: ({ color, size }) => (
-                <Icon name="search" color={color} size={size} />
+                <MatIcon name="counter" color={color} size={size} />
               ),
             }}  />
         </Tab.Navigator>

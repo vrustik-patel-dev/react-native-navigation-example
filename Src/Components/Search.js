@@ -19,7 +19,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
     container: {
         flexDirection:'row',
-        backgroundColor:"#e8e8e8",
+        backgroundColor:'#e8e8e8',
         height: 50,
         margin:15,
         borderRadius:25,

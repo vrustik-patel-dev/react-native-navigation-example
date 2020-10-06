@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import * as React from 'react';
@@ -8,7 +9,7 @@ import {  DrawerContentScrollView,
 import { NavigationContainer } from '@react-navigation/native';
 
 import HomeScreen from './Components/Main.js';
-import SettingScreen from './Components/SettingScreen.js';
+import Search from './Components/Search.js';
 
 function CustomDrawerContent(props) {
     return (
@@ -36,7 +37,7 @@ export default function App() {
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home" drawerContent={props => <CustomDrawerContent {...props} />}>
         <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Settings" component={SettingScreen} />
+        <Drawer.Screen name="Search" component={Search} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
