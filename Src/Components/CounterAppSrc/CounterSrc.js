@@ -25,7 +25,7 @@ class CounterSrc extends React.Component {
 }
 
 function mapStateToProps(state){
-    return{
+    return {
         counterdata: state.counterdata,
     };
 }
@@ -34,7 +34,7 @@ function mapDispatchToProps(disptch) {
     return {
         increaseCounter : () => disptch({type:'INCREASE_COUNTER'}),
         decreaseCounter : () => disptch({type:'DECREASE_COUNTER'}),
-    }
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CounterSrc);
@@ -56,5 +56,5 @@ const styles = StyleSheet.create({
   textstyle:{
       color:'#fff',
       fontSize: 15,
-  }
+  },
 });

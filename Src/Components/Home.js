@@ -30,7 +30,7 @@ export default class App extends Component {
 
     return (
       <View style={{ flex: 1, padding: 24 }}>
-        {isLoading ? <ActivityIndicator/> : (
+        {isLoading ? <View style={{flex:1, justifyContent:'center', alignItems:'center'}}><ActivityIndicator  size="large" color="#000"/></View> : (
           <FlatList
             data={data}
             keyExtractor={({ id }, index) => id}
