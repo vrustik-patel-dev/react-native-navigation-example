@@ -1,27 +1,25 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
+import { useTheme } from '@react-navigation/native';
 
-class CounterSrc extends React.Component {
-    render(){
+function CounterSrc(props) {
+    const { colors } = useTheme();
       return (
         <View style={styles.container}>
             <View style={{flexDirection:'row'}}>
-                <TouchableOpacity onPress={() => this.props.increaseCounter()} style={styles.button}>
+                <TouchableOpacity onPress={() => props.increaseCounter()} style={[styles.button,{backgroundColor:colors.primary}]}>
                     <Text style={styles.textstyle}> + Increase </Text>
                 </TouchableOpacity>
-                <View style={[styles.button, {backgroundColor:'rgbs(0,0,0,0)', width:50}]}>
-                    <Text style={[styles.textstyle,{color:'#000'}]}> {this.props.counterdata} </Text>
+                <View style={[styles.button, { width:50}]}>
+                    <Text style={[styles.textstyle,{color:'black'}]}> {props.counterdata} </Text>
                 </View>
-                <TouchableOpacity onPress={() => this.props.decreaseCounter()} style={styles.button}>
+                <TouchableOpacity onPress={() => props.decreaseCounter()} style={[styles.button,{backgroundColor:colors.primary}]}>
                     <Text style={styles.textstyle}> - Decrease </Text>
                 </TouchableOpacity>
             </View>
       </View>
-      );
-    }
+      );    
 }
 
 function mapStateToProps(state){
@@ -46,15 +44,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button:{
-    backgroundColor: 'black',
     height: 50,
-    width: 100,
+    width: 120,
+    margin: 5,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 25,
+    shadowColor: "black",
+    shadowOffset: {
+        width: 0,
+        height: 1,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 2,
+    elevation: 3,
   },
   textstyle:{
-      color:'#fff',
       fontSize: 15,
+      color: 'white'
   },
 });

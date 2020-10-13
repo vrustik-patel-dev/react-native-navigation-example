@@ -1,17 +1,27 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
-import {View, TextInput , StyleSheet} from 'react-native';
+import {View, TextInput , StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useTheme } from '@react-navigation/native';
 
-export default function HomeScreen() {
+import Header from './Header.js';
+
+export default function HomeScreen(props) {
+  const { colors } = useTheme();
     return (
-      <View style={styles.container}>
-          <View style={styles.searchIcon}>
-            <Icon name="search" size={30} color="grey" />
+      <View style={{flex:1}}>
+
+        <View style={{flex:1, justifyContent:'center', alignSelf:'stretch'}}>
+          <Header {...props} />
+        </View>
+
+        <View style={{flex:12}}>
+          <View style={[styles.container,{backgroundColor: colors.border}]}>
+            <View style={styles.searchIcon}>
+              <Icon name="search" size={30} />
+            </View>
+            <TextInput placeholderTextColor = "grey" placeholder = "Search..." style = {{flex: 5}} />
           </View>
-          <TextInput placeholderTextColor = "grey" placeholder = "Search..." style = {{flex: 5}} />
-        <View style={{flex:1}} />
+        </View>
       </View>
     );
   }
@@ -19,11 +29,10 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
     container: {
         flexDirection:'row',
-        backgroundColor:'#e8e8e8',
         height: 50,
         margin:15,
-        borderRadius:25,
-        alignItems:'center',
+        borderRadius:50,
+        alignItems:'center'
     },
     searchIcon: {
         flex: 1,

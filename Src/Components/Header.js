@@ -1,23 +1,33 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable quotes */
-/* eslint-disable prettier/prettier */
 import React,{Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
+import { useTheme } from '@react-navigation/native';
+import { DrawerActions } from '@react-navigation/native';
 
-export default class Header extends Component {
-    render(){
+const Header = props => {
+    const { colors } = useTheme();
+
         return (
-            <View style={{flexDirection: "row"}}>
-                <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
-                    <Icon name="menu" size={30} color="#000" />
-                </View>
+            <View style={{flexDirection: "row", 
+                backgroundColor: colors.primary, 
+                flex: 1, 
+                shadowColor: "black",
+                shadowOffset: {
+                    width: 0,
+                    height: 1,
+                },
+                shadowOpacity: 1,
+                shadowRadius: 2,
+                elevation: 3,}}>
+                <TouchableOpacity style={{flex:1, justifyContent:'center', alignItems:'center'}} onPress={() => props.navigation.dispatch(DrawerActions.toggleDrawer())}>
+                    <Icon name="menu" size={30} color={colors.htext}/>
+                </TouchableOpacity>
                 <View style={{flex:5, justifyContent:'center', alignItems:'center'}}>
-                    <Text>Navigation-Example</Text>
+                    <Text style={{color: colors.htext}}>Navigation-Example</Text>
                 </View>
                 <View style={{flex:1, justifyContent:'center', alignItems:'center'}} />
             </View>
         );
-    }
 }
+
+export default Header;

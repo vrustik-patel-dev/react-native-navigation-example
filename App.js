@@ -1,8 +1,7 @@
-/* eslint-disable prettier/prettier */
 import * as React from 'react';
 import SplashScreen from 'react-native-splash-screen';
 
-import MainApp from './Src/MainApp.js';
+import MainApp from './Src/MainApp';
 export default class App extends React.Component {
 
   componentDidMount() {
